@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +12,11 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  port: 5173, 
-  strictPort: true, 
-})
+  port: 5173,
+  strictPort: true,
+  build: {
+    rollupOptions: {
+      external: ['redux-persist/integration/react'],
+    },
+  },
+});
